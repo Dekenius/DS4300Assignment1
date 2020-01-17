@@ -23,8 +23,8 @@ Rate: X Timelines/Second
 
 ## Analysis
 ### Computer Specs
-CPU:
-RAM
-Disk:
+CPU: i7 7700HQ. 4 cores at 2.80GHz
+RAM: 16gb 
+Disk: 512gb SSD. Sequential read up to 3000 MB/s and sequential write up to 1150 MB/s
 
 ### Theoretical Optimal Performance
