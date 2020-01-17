@@ -7,5 +7,6 @@ Assumptions:
 * Dates are assigned via the formula (current date - random long).  
 * Users cannot follow themself
 * Size of tweet is at max 100 characters.
+* There are 1,000 users
 
 We assume that by assigning followers and tweets randomly instead of biasing, tweets and followers will be distributed fairly evenly amongst users, resulting in better performance than if they were biased.
