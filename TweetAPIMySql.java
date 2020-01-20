@@ -1,4 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
+import java.time.Duration;
+import java.time.Instant;
 
 /**
  * A class implementing TweetAPI for MySQL databases
@@ -63,7 +68,7 @@ public class TweetAPIMySql implements TweetAPI {
             Statement s = this.con.createStatement();
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
-                // TODO: something here?
+                rs.getString("tweets_text");
             }
             rs.close();
             s.close();
@@ -73,6 +78,6 @@ public class TweetAPIMySql implements TweetAPI {
             e.printStackTrace();
         }
 
-
     }
+
 }
