@@ -1,5 +1,10 @@
 # DS4300 Assignment 1
-Contributors: Griffin Milas, Dan Krasnonosenkikh, Matthew Wojtowicz
+## Contributions: 
+Griffin Milas(Java objects, API & API implementation)
+
+Dan Krasnonosenkikh(Tweet / follow generation)
+
+Matthew Wojtowicz(SQL Schema creation)
 
 ## Assumptions: 
 * Users are followed and follow other users randomly. 
