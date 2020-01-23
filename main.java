@@ -1,23 +1,27 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.time.Instant;
 
 
 public class main {
-    public static void main(String [] args) throws IOException {
+    public static void main(String [] args) throws IOException, SQLException {
         tweetTest();
         timelineTest();
     }
 
 
-    private static void tweetTest() throws IOException {
+
+
+    private static void tweetTest() throws IOException, SQLException {
         BufferedReader csvReader = new BufferedReader(new FileReader("new2.csv"));
 
         // Connect to DB
         //TODO: Add URL to DB
-        TweetAPIMySql api = new TweetAPIMySql("X", "user1", "root");
+        TweetAPIMySql api = new TweetAPIMySql("jdbc:mysql://localhost:3306/twitter", "user1", "root");
         // Start a timer
         System.out.println("Starting tweet test.");
         Instant start = Instant.now();
@@ -35,7 +39,7 @@ public class main {
         System.out.println("Finished tweet test. Duration: " + Duration.between(start, end));
     }
 
-    private static void timelineTest() throws IOException {
+    private static void timelineTest() throws IOException, SQLException {
         // Connect to DB
         //TODO: Add URL to DB
         TweetAPIMySql api = new TweetAPIMySql("X", "user1", "root");

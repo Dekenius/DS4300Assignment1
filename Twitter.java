@@ -56,8 +56,8 @@ public class Twitter {
 
     for (int i = 0; i < numTweets; i++) {
 
-      Date date = new Date(Math.abs(System.currentTimeMillis() - rnd.nextLong()));
-      DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+      Date date = new Date(Math.abs(System.currentTimeMillis() - (int) (999999999 * Math.random())));
+      DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
       String strDate = dateFormat.format(date);
 
       // chose a Character random from this String
@@ -81,7 +81,7 @@ public class Twitter {
 
       ArrayList<String> list1 = new ArrayList<String>();
       list1.add(String.valueOf(i));
-      list1.add(String.valueOf(Math.random() * numUsers));
+      list1.add(String.valueOf((int)(Math.random() * numUsers)));
       list1.add(strDate);
       list1.add(sb);
 

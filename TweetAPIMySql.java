@@ -17,8 +17,9 @@ public class TweetAPIMySql implements TweetAPI {
      * @param user the username being used to connect to the database
      * @param password the password being used to connect to the database
      */
-    TweetAPIMySql(String url, String user, String password) {
+    TweetAPIMySql(String url, String user, String password) throws IOException, SQLException {
         this.con = this.getConnection(url, user, password);
+        this.importFollowers();
     }
 
     /**
@@ -44,12 +45,14 @@ public class TweetAPIMySql implements TweetAPI {
     @Override
     public void postTweet(Tweet t) {
 
-        String sql = "INSERT into Tweets (userid, tweets_ts, tweet_text) " +
-                "VALUES (" + t.getUserID() + ", " + t.getDate() + ", " + t.getContent() + ");";
+        String sql = "INSERT into Tweets (user_id, tweets_ts, tweets_text) " +
+                "VALUES (" + t.getUserID() + ", \"" + Timestamp.valueOf(t.getDate()) + "\", \"" + t.getContent() + "\");";
 
+        System.out.println(sql);
         try {
             Statement s = con.createStatement();
             s.execute(sql);
+            con.commit();
             s.close();
 
         } catch (SQLException e) {
@@ -78,6 +81,27 @@ public class TweetAPIMySql implements TweetAPI {
             e.printStackTrace();
         }
 
+    }
+
+    private void importFollowers() throws IOException, SQLException {
+        BufferedReader csvReader = new BufferedReader(new FileReader("new.csv"));
+        String row;
+
+        // wipe the old followers
+        Statement ss = this.con.createStatement();
+        ss.execute("TRUNCATE TABLE tweets");
+        ss.execute("TRUNCATE TABLE followers");
+        ss.close();
+
+        while ((row = csvReader.readLine()) != null) {
+            String[] data = row.split(",");
+            String sql = "insert into followers (user_id, follows_id) VALUES ("
+                    + Integer.parseInt(data[0])+ ", " + Integer.parseInt(data[1]) + ");";
+            Statement s = this.con.createStatement();
+            s.execute(sql);
+            s.close();
+        }
+        System.out.println("Followers import successful");
     }
 
 }
