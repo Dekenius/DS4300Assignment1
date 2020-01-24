@@ -63,8 +63,8 @@ public class TweetAPIMySql implements TweetAPI {
     @Override
     public void getTimeline(int userID) {
 
-        String sql = "select t.* FROM Tweets t join follows f on t.user_id = f.follows_id " +
-                "where f.follower_id = " + userID + " order by t.datetime desc limit 20";
+        String sql = "select t.* FROM tweets t join followers f on t.user_id = f.follows_id " +
+                "where f.follows_id = " + userID + " order by t.tweets_ts desc Limit 10";
 
         try {
             // get connection and initialize statement

@@ -42,18 +42,18 @@ public class main {
     private static void timelineTest() throws IOException, SQLException {
         // Connect to DB
         //TODO: Add URL to DB
-        TweetAPIMySql api = new TweetAPIMySql("X", "user1", "root");
+        TweetAPIMySql api = new TweetAPIMySql("jdbc:mysql://localhost:3306/twitter", "user1", "root");
         // Start a timer
         System.out.println("Starting timeline test.");
         Instant start = Instant.now();
 
-        // For each user 0 - 999, get their timeline
-        for (int i = 1; i < 1001; ++i) {
-            api.getTimeline(i);
+        // Pick random user's timeline
+        for (int i = 0; i < 1000; ++i) {
+            api.getTimeline((int)(Math.random() * 1000));
         }
 
         // Print a "done" message / close timer
         Instant end = Instant.now();
-        System.out.println("Finished timline test. Duration: " + Duration.between(start, end));
+        System.out.println("Finished timeline test. Duration: " + Duration.between(start, end));
     }
 }
