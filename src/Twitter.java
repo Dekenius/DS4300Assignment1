@@ -77,6 +77,7 @@ public class Twitter {
 
         // add Character one by one in end of sb
         sb += AlphaNumericString.charAt(index);
+        sb = sb.substring(0, Math.min(sb.length(), 100));
       }
 
       ArrayList<String> list1 = new ArrayList<String>();
