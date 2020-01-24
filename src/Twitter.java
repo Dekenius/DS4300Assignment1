@@ -99,6 +99,7 @@ public class Twitter {
       csvWriter2.append("\n");
 
     }
+
     csvWriter2.flush();
     csvWriter2.close();
 
