@@ -21,29 +21,17 @@ public class Twitter {
 
       ArrayList<String> list1 = new ArrayList<String>();
 
-      int l1, l2;
+      int l1;
       l1 = (int)(Math.random() * ((numUsers) + 1));
-      l2 = (int)(Math.random() * ((numUsers) + 1));
       // make sure they not same, assume can't follow self
-      while (l1 == l2) {
-        l2 = (int)(Math.random() * ((numUsers) + 1));
+      while (l1 == i) {
+        l1 = (int)(Math.random() * ((numUsers) + 1));
       }
 
-      list1.add(String.valueOf(l1)); // follower
-      list1.add(String.valueOf(l2)); // followee
+      list1.add(String.valueOf(i)); // follower
+      list1.add(String.valueOf(l1)); // followee
 
       followerTable.add(list1);
-
-      int l3;
-      l3 = (int)(Math.random() * ((numUsers) + 1));
-
-      ArrayList<String> list2 = new ArrayList<String>();
-
-      list1.add(String.valueOf(i)); // follower
-      list1.add(String.valueOf(l3)); // followee
-
-      followerTable.add(list2);
-
 
 
     }
@@ -79,7 +67,7 @@ public class Twitter {
 
       // create StringBuffer size of AlphaNumericString
       int tweetMaxSize = 100;
-      String sb = "";
+      String sb = "g";
 
       for (int j = 0; j < (int)(tweetMaxSize * Math.random()); i++) {
 

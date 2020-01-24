@@ -52,7 +52,7 @@ public class TweetAPIMySql implements TweetAPI {
         try {
             Statement s = con.createStatement();
             s.execute(sql);
-            con.commit();
+
             s.close();
 
         } catch (SQLException e) {
