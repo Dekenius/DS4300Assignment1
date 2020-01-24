@@ -51,7 +51,7 @@ public class Twitter {
     // MAKE TWEETS
     ArrayList<ArrayList<String>> tweetsTable = new ArrayList<ArrayList<String>>();
 
-    int numTweets = 1000000; //million
+    int numTweets = 100000000; //million
     Random rnd = new Random();
 
     for (int i = 0; i < numTweets; i++) {
