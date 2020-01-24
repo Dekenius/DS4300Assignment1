@@ -34,6 +34,18 @@ public class Twitter {
 
       followerTable.add(list1);
 
+      int l3;
+      l3 = (int)(Math.random() * ((numUsers) + 1));
+
+      ArrayList<String> list2 = new ArrayList<String>();
+
+      list1.add(String.valueOf(i)); // follower
+      list1.add(String.valueOf(l3)); // followee
+
+      followerTable.add(list2);
+
+
+
     }
 
     // write all the follower data to the csv
