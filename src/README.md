@@ -13,7 +13,7 @@ Matthew Wojtowicz(SQL Schema creation)
 * Users cannot follow themself
 * Size of tweet is at max 140 characters.
 * There are 1,000 users
-* A timeline consists of at max 20 tweets
+* A timeline consists of at max 10 tweets
 
 We assume that by assigning followers and tweets randomly instead of biasing, tweets and followers will be distributed fairly evenly amongst users, resulting in better performance than if they were biased.
 
