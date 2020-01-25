@@ -2,8 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-import java.time.Duration;
-import java.time.Instant;
 
 /**
  * A class implementing TweetAPI for MySQL databases
@@ -17,7 +15,7 @@ public class TweetAPIMySql implements TweetAPI {
      * @param user the username being used to connect to the database
      * @param password the password being used to connect to the database
      */
-    TweetAPIMySql(String url, String user, String password) throws IOException, SQLException {
+    TweetAPIMySql(String url, String user, String password) {
         this.con = this.getConnection(url, user, password);
     }
 
