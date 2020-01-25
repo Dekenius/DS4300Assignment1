@@ -19,7 +19,6 @@ public class TweetAPIMySql implements TweetAPI {
      */
     TweetAPIMySql(String url, String user, String password) throws IOException, SQLException {
         this.con = this.getConnection(url, user, password);
-        this.importFollowers();
     }
 
     /**
@@ -64,7 +63,7 @@ public class TweetAPIMySql implements TweetAPI {
     public void getTimeline(int userID) {
 
         String sql = "select t.* FROM tweets t join followers f on t.user_id = f.follows_id " +
-                "where f.follows_id = " + userID + " order by t.tweets_ts desc Limit 10";
+                "where f.user_id = " + userID + " order by t.tweets_ts desc Limit 10";
 
         try {
             // get connection and initialize statement
@@ -72,6 +71,7 @@ public class TweetAPIMySql implements TweetAPI {
             ResultSet rs = s.executeQuery(sql);
             while (rs.next()) {
                 rs.getString("tweet_text");
+
             }
             rs.close();
             s.close();
@@ -83,7 +83,7 @@ public class TweetAPIMySql implements TweetAPI {
 
     }
 
-    private void importFollowers() throws IOException, SQLException {
+    public void importFollowers() throws IOException, SQLException {
         BufferedReader csvReader = new BufferedReader(new FileReader("new.csv"));
         String row;
 

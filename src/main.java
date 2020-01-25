@@ -14,14 +14,13 @@ public class main {
     }
 
 
-
-
     private static void tweetTest() throws IOException, SQLException {
         BufferedReader csvReader = new BufferedReader(new FileReader("new2.csv"));
 
         // Connect to DB
         //TODO: Add URL to DB
         TweetAPIMySql api = new TweetAPIMySql("jdbc:mysql://localhost:3306/twitter", "user1", "root");
+        api.importFollowers();
         // Start a timer
         System.out.println("Starting tweet test.");
         Instant start = Instant.now();

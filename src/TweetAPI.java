@@ -1,4 +1,5 @@
 import java.sql.SQLException;
+import java.io.IOException;
 
 public interface TweetAPI {
 
@@ -14,4 +15,10 @@ public interface TweetAPI {
      * @param userID the user whose timeline is to be retrieved
      */
     void getTimeline(int userID);
+
+    /**
+     * @throws IOException if something happens while reading the file
+     * @throws SQLException if some sql error occurs
+     */
+    void importFollowers() throws IOException, SQLException;
 }
