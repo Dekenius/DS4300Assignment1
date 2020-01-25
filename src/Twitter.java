@@ -65,9 +65,9 @@ public class Twitter {
               + "0123456789"
               + "abcdefghijklmnopqrstuvxyz";
 
-      // create StringBuffer size of AlphaNumericString
-      int tweetMaxSize = 100;
+      // create StringBuffer. Default value is "g" in case generated tweet is blank.
       String sb = "g";
+      int tweetMaxSize = 140;
 
       for (int j = 0; j < (int)(tweetMaxSize * Math.random()); i++) {
 
@@ -77,7 +77,7 @@ public class Twitter {
 
         // add Character one by one in end of sb
         sb += AlphaNumericString.charAt(index);
-        sb = sb.substring(0, Math.min(sb.length(), 100));
+        sb = sb.substring(0, Math.min(sb.length(), tweetMaxSize));
       }
 
       ArrayList<String> list1 = new ArrayList<String>();
