@@ -18,7 +18,6 @@ public class main {
         BufferedReader csvReader = new BufferedReader(new FileReader("new2.csv"));
 
         // Connect to DB
-        //TODO: Add URL to DB
         TweetAPIMySql api = new TweetAPIMySql("jdbc:mysql://localhost:3306/twitter", "user1", "root");
         api.importFollowers();
         // Start a timer

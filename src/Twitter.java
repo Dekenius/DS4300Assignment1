@@ -32,8 +32,6 @@ public class Twitter {
       list1.add(String.valueOf(l1)); // followee
 
       followerTable.add(list1);
-
-
     }
 
     // write all the follower data to the csv
@@ -87,7 +85,6 @@ public class Twitter {
       list1.add(sb);
 
       tweetsTable.add(list1);
-
     }
 
 
@@ -102,7 +99,6 @@ public class Twitter {
 
     csvWriter2.flush();
     csvWriter2.close();
-
   }
 
 }
